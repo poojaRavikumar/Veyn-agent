@@ -1,0 +1,25 @@
+{
+  "name": "weather-agent-backend",
+  "version": "1.0.0",
+  "description": "LangChain.js agent backend with tool-calling against the Weather MCP Server",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "@langchain/groq": "^0.1.2",
+    "@langchain/core": "^0.3.18",
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "langchain": "^0.3.5",
+    "morgan": "^1.10.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}

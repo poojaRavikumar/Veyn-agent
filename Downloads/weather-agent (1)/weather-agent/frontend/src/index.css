@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-deep: #03101f;
+  --bg-card: rgba(7, 30, 61, 0.7);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f0f4ff;
+  --text-muted: #7a9bbf;
+  --accent: #fbbf24;
+  --accent-glow: rgba(251, 191, 36, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+/* Shimmer loading animation */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.04) 25%,
+    rgba(255,255,255,0.10) 50%,
+    rgba(255,255,255,0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Message fade-up */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.4s ease forwards;
+}
+
+/* Starfield background */
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: twinkle var(--dur, 4s) ease-in-out infinite var(--delay, 0s);
+  opacity: 0;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: var(--bright, 0.6); }
+}
+
+/* Prose formatting inside agent messages */
+.agent-prose p { margin: 0.4rem 0; }
+.agent-prose ul { list-style: disc; padding-left: 1.4rem; margin: 0.4rem 0; }
+.agent-prose li { margin: 0.2rem 0; }
+.agent-prose strong { color: var(--accent); font-weight: 600; }
